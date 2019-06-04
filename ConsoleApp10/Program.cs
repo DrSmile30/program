@@ -10,25 +10,26 @@ namespace ConsoleApp10
     {
         class People
         {
+            // Поля класса
             public string name;
             public int age;
             public double size;
+
+            //Конструктор класса
+            public People(string name, int age, double size)
+            {
+                this.name = name;
+                this.age = age;
+                this.size = size;
+            } 
         }
 
 
         static void Main(string[] args)
         {
-            People m1 = new People();
-            m1.age = 25;
-            m1.name = "Артём";
-            m1.size = 180.5;
-            People m2 = new People();
-            m2.age = 35;
-            m2.name = "Иван";
-            m2.size = 195.3;
-            Console.WriteLine(m1.age + " " +  m1.name + " "  + m1.size);
-
-                    
+            People man1 = new People("Вася", 38, 168.3);
+            People man2 = new People("Дмитрий", 25, 174);
+            Console.WriteLine(man1.age + " " + man1.name + " " + man1.size);
         }
     }
 }

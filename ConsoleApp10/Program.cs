@@ -21,7 +21,12 @@ namespace ConsoleApp10
                 this.name = name;
                 this.age = age;
                 this.size = size;
-            } 
+            }
+            public void Show ()
+            {
+                Console.WriteLine(name + " " + age + " " + size);
+            }
+                
         }
 
 
@@ -29,7 +34,8 @@ namespace ConsoleApp10
         {
             People man1 = new People("Вася", 38, 168.3);
             People man2 = new People("Дмитрий", 25, 174);
-            Console.WriteLine(man1.age + " " + man1.name + " " + man1.size);
+            man1.Show();
+            man2.Show();
         }
     }
 }

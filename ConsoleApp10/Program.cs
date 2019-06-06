@@ -27,10 +27,7 @@ namespace ConsoleApp10
                     name = value;
                 }
             }
-            public void Sound()
-            {
-
-            }
+            public abstract void Sound();
         }
         class Dog : Animal
         {
@@ -56,7 +53,7 @@ namespace ConsoleApp10
 
 
             }
-            public void Sound()
+            public override void Sound()
             {
                 Console.WriteLine("Гав");
             }
@@ -66,12 +63,15 @@ namespace ConsoleApp10
         class Cat : Animal
         {
             private string color;
+            private int[] bd;
 
-            public Cat(string name, string color)
+            public Cat(string name, string color, int[] bd)
                 : base(name)
             {
                 this.Name = name;
                 this.color = color;
+                this.bd = bd;
+
             }
             public string Color
             {
@@ -84,7 +84,7 @@ namespace ConsoleApp10
                     color = value;
                 }
             }
-            public void Sound()
+            public override void Sound()
             {
                 Console.WriteLine("Мяу");
             }
@@ -97,7 +97,7 @@ namespace ConsoleApp10
             private int speed;
             private double size;
 
-            public Bird(string name,int speed,double size)
+            public Bird(string name, int speed, double size)
                 : base(name)
             {
                 this.Name = name;
@@ -127,7 +127,7 @@ namespace ConsoleApp10
                     size = value;
                 }
             }
-            public void Sound()
+            public override void Sound()
             {
                 Console.WriteLine("Чик-чирик");
             }
@@ -139,12 +139,13 @@ namespace ConsoleApp10
 
         static void Main(string[] args)
         {
-            Dog dog1 = new Dog("Шарик", "Овчарка");
-            Cat cat1 = new Cat("Мурка", "Черный");
-            Bird bird1 = new Bird("Кеша", 28, 5.5);
-            dog1.Sound();
-            cat1.Sound();
-            bird1.Sound();
+            Animal a = new Dog("Шарик", "Овчарка");
+            a.Sound();
+            a = new Cat("Мурка", "Черный", new int[] { 1, 2, 3 });
+            a.Sound();
+            a = new Bird("Кеша", 28, 5.5);
+            a.Sound();
+
         }
     }
 }

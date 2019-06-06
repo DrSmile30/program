@@ -8,24 +8,14 @@ namespace ConsoleApp10
 {
     class Program
     {
-        class People
+        abstract class Animal
         {
-            // Поля класса
             private string name;
-            private string secondname;
-            private int age;
-            private double size;
 
-
-            //Конструктор класса
-            public People(string name, string secondname, int age, double size)
+            public Animal(string name)
             {
                 this.name = name;
-                this.secondname = secondname;
-                this.age = age;
-                this.size = size;
             }
-            //Свойства
             public string Name
             {
                 get
@@ -37,31 +27,95 @@ namespace ConsoleApp10
                     name = value;
                 }
             }
+            public void Sound()
+            {
 
-            public string Secondname
+            }
+        }
+        class Dog : Animal
+        {
+            private string poroda;
+
+            public Dog(string name, string poroda)
+                : base(name)
+            {
+                this.Name = name;
+                this.poroda = poroda;
+            }
+
+            public string Poroda
             {
                 get
                 {
-                    return secondname;
+                    return poroda;
                 }
                 set
                 {
-                    secondname = value;
+                    poroda = value;
                 }
+
+
+            }
+            public void Sound()
+            {
+                Console.WriteLine("Гав");
             }
 
-            public int Age
+
+        }
+        class Cat : Animal
+        {
+            private string color;
+
+            public Cat(string name, string color)
+                : base(name)
+            {
+                this.Name = name;
+                this.color = color;
+            }
+            public string Color
             {
                 get
                 {
-                    return age;
+                    return color;
                 }
                 set
                 {
-                    age = value;
+                    color = value;
                 }
             }
-            
+            public void Sound()
+            {
+                Console.WriteLine("Мяу");
+            }
+
+
+
+        }
+        class Bird : Animal
+        {
+            private int speed;
+            private double size;
+
+            public Bird(string name,int speed,double size)
+                : base(name)
+            {
+                this.Name = name;
+                this.speed = speed;
+                this.size = size;
+            }
+            public int Speed
+            {
+                get
+                {
+                    return speed;
+                }
+                set
+                {
+                    speed = value;
+                }
+
+            }
             public double Size
             {
                 get
@@ -73,29 +127,24 @@ namespace ConsoleApp10
                     size = value;
                 }
             }
-        
-
-
-            //Метод
-            public void Show()
+            public void Sound()
             {
-                Console.WriteLine(Name + " " + Secondname + " " + Age + " " + Size);
+                Console.WriteLine("Чик-чирик");
             }
 
         }
 
 
+
+
         static void Main(string[] args)
         {
-            People man1 = new People("Вася", "Ivanov", 38, 168.3);
-            People man2 = new People("Дмитрий", "Vasin", 25, 174);
-            man1.Name = "Ivan";
-            man1.Secondname = "Petrov";
-            man2.Show();
-            //man2.Age-
-            //man2.age-обращаемся к полю
-
-            
+            Dog dog1 = new Dog("Шарик", "Овчарка");
+            Cat cat1 = new Cat("Мурка", "Черный");
+            Bird bird1 = new Bird("Кеша", 28, 5.5);
+            dog1.Sound();
+            cat1.Sound();
+            bird1.Sound();
         }
     }
 }
